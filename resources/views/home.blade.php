@@ -86,9 +86,7 @@
                 投稿はまだありません。
             @endforelse
 
-            @if($posts && $posts->count() > 0)
-                {{ $posts->links() }}
-            @endif
+            {{ $posts->links() }}
         </div>
     </div>
 </x-app-layout>
