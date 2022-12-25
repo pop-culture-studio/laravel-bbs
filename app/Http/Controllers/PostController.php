@@ -49,8 +49,8 @@ class PostController extends Controller
             'password',
         ]));
 
-        cookie()->queue('name', $request->input('name'));
-        cookie()->queue('email', $request->input('email'));
+        cookie()->queue('name', $request->input('name'), 60*24*30);
+        cookie()->queue('email', $request->input('email'), 60*24*30);
 
         return back();
     }
