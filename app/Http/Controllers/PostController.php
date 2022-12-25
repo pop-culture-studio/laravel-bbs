@@ -32,11 +32,23 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePostRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StorePostRequest $request)
     {
-        //
+        Post::create([
+            'title' => $request->input('title'),
+            'content' => $request->input('content'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'icon' => $request->input('icon'),
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        cookie()->queue('name', $request->input('name'));
+        cookie()->queue('email', $request->input('email'));
+
+        return back();
     }
 
     /**

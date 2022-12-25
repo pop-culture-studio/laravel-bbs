@@ -16,7 +16,7 @@ class Post extends Model
         'title',
         'content',
         'name',
-        'mail',
+        'email',
         'icon',
         'password'
     ];

@@ -18,8 +18,8 @@ return new class extends Migration
 
             $table->string('title')->nullable();
             $table->text('content');
-            $table->string('name')->default('NO NAME');
-            $table->string('mail')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
             $table->string('icon')->nullable();
             $table->string('password')->nullable();
 
