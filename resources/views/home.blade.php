@@ -29,9 +29,9 @@
 
                         <!-- Email Address -->
                         <div class="mt-4">
-                            <x-input-label for="email" :value="__('メール（公開されません）')" />
-                            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', request()->cookie('email'))" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <x-input-label for="mail" :value="__('メール（公開されません）')" />
+                            <x-text-input id="mail" class="block mt-1 w-full" type="email" name="mail" :value="old('mail', request()->cookie('mail'))" />
+                            <x-input-error :messages="$errors->get('mail')" class="mt-2" />
                         </div>
 
                         <!-- Password -->
