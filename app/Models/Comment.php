@@ -21,6 +21,11 @@ class Comment extends Model
     ];
 
     /**
+     * @var array
+     */
+    protected $touches = ['post'];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function post()

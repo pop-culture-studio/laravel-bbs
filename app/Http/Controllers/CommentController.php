@@ -39,7 +39,22 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request, Post $post)
     {
-        //
+        $request->merge([
+            'password' => bcrypt($request->input('password')),
+        ]);
+
+        $post->comments()->create($request->only([
+            'content',
+            'name',
+            'email',
+            'icon',
+            'password',
+        ]));
+
+        cookie()->queue('name', $request->input('name'), 60*24*30);
+        cookie()->queue('email', $request->input('email'), 60*24*30);
+
+        return back();
     }
 
     /**

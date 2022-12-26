@@ -21,7 +21,7 @@ return new class extends Migration
                   ->cascadeOnUpdate()
                   ->cascadeOnDelete();
 
-            $table->text('content');
+            $table->string('content');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('icon')->nullable();

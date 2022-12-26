@@ -15,7 +15,10 @@ class HomeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $posts = Post::latest('updated_at')->paginate();
+        $posts = Post::with([
+            'comments' => fn ($comment) => $comment->latest(),
+        ])->latest('updated_at')
+          ->paginate();
 
         return view('home')->with(compact('posts'));
     }

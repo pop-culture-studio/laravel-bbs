@@ -13,6 +13,10 @@
                     {!! nl2br(e($post->content)) !!}
                 </p>
             </div>
+
+            <div class="p-6 border-t">
+                @include('home.comment')
+            </div>
         </div>
     </div>
 @empty
