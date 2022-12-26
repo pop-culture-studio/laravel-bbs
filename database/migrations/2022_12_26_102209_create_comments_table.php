@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('post_id')
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->cascadeOnDelete();
+
+            $table->text('content');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('icon')->nullable();
+            $table->string('password');
+
             $table->timestamps();
         });
     }
