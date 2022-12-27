@@ -11,6 +11,11 @@
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
                 </div>
+                @can('admin')
+                    <div class="p-6 text-gray-900">
+                        admin
+                    </div>
+                @endcan
             </div>
         </div>
     </div>
