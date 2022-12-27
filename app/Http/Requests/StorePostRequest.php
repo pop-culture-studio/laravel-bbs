@@ -30,7 +30,7 @@ class StorePostRequest extends FormRequest
             'name' => ['nullable', 'string', 'max:255'],
             'email' => ['nullable', 'string', 'email', 'max:255'],
             'icon' => ['nullable', 'string', 'max:255'],
-            'password' => ['nullable', Password::defaults()],
+            'password' => ['required', Password::defaults()],
         ];
     }
 }
