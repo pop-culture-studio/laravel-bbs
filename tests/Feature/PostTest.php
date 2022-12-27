@@ -47,4 +47,20 @@ class PostTest extends TestCase
                  'title' => 'test title',
              ]);
     }
+
+    public function test_store_invalid_missing_password()
+    {
+        $response = $this->post(route('post.store'), [
+            'content' => 'test',
+            'password' => null,
+        ]);
+
+        $response->assertRedirect()
+                 ->assertInvalid(['password']);
+
+        $this->assertDatabaseCount('posts', 0)
+             ->assertDatabaseMissing('posts', [
+                 'content' => 'test',
+             ]);
+    }
 }
