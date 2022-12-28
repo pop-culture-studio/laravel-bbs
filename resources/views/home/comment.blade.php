@@ -5,8 +5,7 @@
         <li>
             <span class="font-bold">{{ $comment->name ?? 'NO NAME' }}</span>
             <span class="mx-1">『{{ $comment->content }}』</span>
-            <time class="text-gray-200" datetime="{{ $comment->created_at }}">{{ $comment->created_at }}</time>
-
+            <time class="text-gray-400" datetime="{{ $comment->created_at }}">{{ $comment->created_at }}</time>
         </li>
     @empty
         <span class="text-gray-300">コメントはありません。</span>
