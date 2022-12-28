@@ -1,6 +1,14 @@
 @forelse($posts as $post)
     <div class="flex flex-col sm:flex-row">
         <div class="px-6 sm:p-6 my-3 sm:w-1/4">
+            @if(filled($post->icon) && file_exists(public_path('/icon/'.config('icon.'.$post->icon.'.file'))))
+                <img src="{{ asset('/icon/'.config('icon.'.$post->icon.'.file')) }}"
+                     class="w-48 rounded-full"
+                     alt="{{ config('icon.'.$post->icon.'.name') }}"
+                     title="{{ config('icon.'.$post->icon.'.name') }}"
+                >
+            @endif
+
             <div class="text-lg font-bold">{{ $post->name ?? 'NO NAME' }}</div>
 
             <time class="mt-6" datetime="{{ $post->created_at }}">{{ $post->created_at }}</time>
