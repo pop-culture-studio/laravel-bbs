@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostDeleteConfirmController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +36,5 @@ Route::resource('post', PostController::class);
 
 Route::resource('post.comment', CommentController::class)
      ->only(['store']);
+
+Route::get('post/{post}/delete', PostDeleteConfirmController::class)->name('post.delete');
