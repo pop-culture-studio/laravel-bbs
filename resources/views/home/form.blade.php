@@ -18,6 +18,29 @@
         <x-input-error :messages="$errors->get('content')" class="mt-2"/>
     </div>
 
+    <!-- Icon -->
+    <div class="mt-4">
+        <x-input-label for="icon" :value="__('アイコン')"/>
+        <select id="icon"
+                class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                name="icon">
+            <option value="" @selected(blank(request()->cookie('icon')))>なし</option>
+            @foreach(config('icon') as $key => $icon)
+                <option value="{{ $key }}" @selected(request()->cookie('icon') === $key)>{{ $icon['name'] }}</option>
+            @endforeach
+        </select>
+
+        <div class="my-3 flex flex-row space-x-5">
+            @foreach(config('icon') as $key => $icon)
+                <span><img src="{{ asset('/icon/'.$icon['file']) }}" class="w-8 rounded-full inline" alt="{{ $icon['name'] }}" title="{{ $icon['name'] }}">
+                    <span class="font-bold">{{ $icon['name'] }}</span>
+                </span>
+            @endforeach
+        </div>
+
+        <x-input-error :messages="$errors->get('icon')" class="mt-2"/>
+    </div>
+
     <!-- Name -->
     <div class="mt-4">
         <x-input-label for="name" :value="__('名前')"/>
