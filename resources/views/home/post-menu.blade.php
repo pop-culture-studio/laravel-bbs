@@ -14,7 +14,7 @@
             編集
         </x-dropdown-link>
 
-        <x-dropdown-link :href="route('post.edit', $post)">
+        <x-dropdown-link :href="route('post.delete', $post)">
             削除...
         </x-dropdown-link>
     </x-slot>
