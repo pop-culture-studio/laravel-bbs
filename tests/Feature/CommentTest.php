@@ -30,6 +30,7 @@ class CommentTest extends TestCase
 
         $response = $this->post(route('post.comment.store', $post), [
             'content' => 'test content',
+            'icon' => 'icon1',
             'name' => 'test name',
             'email' => 'test@localhost',
             'password' => 'password',
@@ -41,6 +42,7 @@ class CommentTest extends TestCase
              ->assertDatabaseHas('comments', [
                  'post_id' => $post->id,
                  'content' => 'test content',
+                 'icon' => 'icon1',
                  'name' => 'test name',
                  'email' => 'test@localhost',
              ]);
