@@ -3,7 +3,15 @@
 <ul class="ml-3 space-y-1">
     @forelse($post->comments as $comment)
         <li>
-            <span class="font-bold">{{ $comment->name ?? 'NO NAME' }}</span>
+            <span class="font-bold">
+                @if(filled($comment->icon) && file_exists(public_path('/icon/'.config('icon.'.$comment->icon.'.file'))))
+                    <img src="{{ asset('/icon/'.config('icon.'.$comment->icon.'.file')) }}"
+                         class="w-8 rounded-full inline"
+                         alt="{{ config('icon.'.$comment->icon.'.name') }}"
+                         title="{{ config('icon.'.$comment->icon.'.name') }}"
+                    >
+                @endif
+                {{ $comment->name ?? 'NO NAME' }}</span>
             <span class="mx-1">『{{ $comment->content }}』</span>
             <time class="text-gray-400" datetime="{{ $comment->created_at }}">{{ $comment->created_at }}</time>
         </li>
@@ -25,6 +33,22 @@
                               class="block mt-1 w-full"
                               type="text" name="content" :value="old('content')" required/>
                 <x-input-error :messages="$errors->get('content')" class="mt-2"/>
+            </div>
+
+            <!-- Icon -->
+            <div class="mt-4">
+                <x-input-label for="icon" :value="__('アイコン')"/>
+                <select id="icon"
+                        class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                        name="icon">
+                    <option value="" @selected(blank(request()->cookie('icon')))>なし</option>
+                    @foreach(config('icon') as $key => $icon)
+                        <option
+                            value="{{ $key }}" @selected(request()->cookie('icon') === $key)>{{ $icon['name'] }}</option>
+                    @endforeach
+                </select>
+
+                <x-input-error :messages="$errors->get('icon')" class="mt-2"/>
             </div>
 
             <!-- Name -->
