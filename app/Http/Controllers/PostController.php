@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DestroyPostRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Http\Response;
 
 class PostController extends Controller
 {
@@ -49,8 +51,8 @@ class PostController extends Controller
             'password',
         ]));
 
-        cookie()->queue('name', $request->input('name'), 60*24*30);
-        cookie()->queue('email', $request->input('email'), 60*24*30);
+        cookie()->queue('name', $request->input('name'), 60 * 24 * 30);
+        cookie()->queue('email', $request->input('email'), 60 * 24 * 30);
 
         return back();
     }
@@ -92,11 +94,14 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param  DestroyPostRequest  $request
+     * @param  Post  $post
+     * @return Response
      */
-    public function destroy(Post $post)
+    public function destroy(DestroyPostRequest $request, Post $post)
     {
-        //
+        $post->delete();
+
+        return to_route('home');
     }
 }
