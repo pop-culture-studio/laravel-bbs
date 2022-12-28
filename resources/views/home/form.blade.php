@@ -30,7 +30,7 @@
             @endforeach
         </select>
 
-        <div class="my-3 flex flex-row space-x-5">
+        <div class="my-3 flex flex-row flex-wrap space-x-5">
             @foreach(config('icon') as $key => $icon)
                 <span><img src="{{ asset('/icon/'.$icon['file']) }}" class="w-8 rounded-full inline" alt="{{ $icon['name'] }}" title="{{ $icon['name'] }}">
                     <span class="font-bold">{{ $icon['name'] }}</span>
