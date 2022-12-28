@@ -53,6 +53,7 @@ class PostController extends Controller
 
         cookie()->queue('name', $request->input('name'), 60 * 24 * 30);
         cookie()->queue('email', $request->input('email'), 60 * 24 * 30);
+        cookie()->queue('icon', $request->input('icon'), 60 * 24 * 30);
 
         return back();
     }
