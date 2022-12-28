@@ -17,6 +17,7 @@ class PostTest extends TestCase
         $response = $this->post(route('post.store'), [
             'title' => 'test title',
             'content' => 'test content',
+            'icon' => 'icon1',
             'name' => 'test name',
             'email' => 'test@localhost',
             'password' => 'password',
@@ -28,6 +29,7 @@ class PostTest extends TestCase
              ->assertDatabaseHas('posts', [
                  'title' => 'test title',
                  'content' => 'test content',
+                 'icon' => 'icon1',
                  'name' => 'test name',
                  'email' => 'test@localhost',
              ]);
