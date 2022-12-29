@@ -51,8 +51,11 @@ class CommentController extends Controller
             'password',
         ]));
 
-        cookie()->queue('name', $request->input('name'), 60*24*30);
-        cookie()->queue('email', $request->input('email'), 60*24*30);
+        $cookie_days = 60 * 24 * 30;
+
+        cookie()->queue('name', $request->input('name'), $cookie_days);
+        cookie()->queue('email', $request->input('email'), $cookie_days);
+        cookie()->queue('icon', $request->input('icon'), $cookie_days);
 
         return back();
     }
