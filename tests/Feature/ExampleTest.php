@@ -35,4 +35,12 @@ class ExampleTest extends TestCase
 
         $this->assertDatabaseCount('posts', 20);
     }
+
+    public function test_show_visitor_name()
+    {
+        $response = $this->withCookie('name', 'test visitor')
+                         ->get('/');
+
+        $response->assertSeeText('test visitor');
+    }
 }
