@@ -16,6 +16,6 @@ class PostDeleteConfirmController extends Controller
      */
     public function __invoke(Request $request, Post $post)
     {
-        return view('home.post-delete-confirm')->with(compact('post'));
+        return view('post.post-delete-confirm')->with(compact('post'));
     }
 }

@@ -126,4 +126,14 @@ class PostTest extends TestCase
                  'id' => $post->id,
              ]);
     }
+
+    public function test_show_single_post()
+    {
+        $post = Post::factory()->create();
+
+        $response = $this->get(route('post.show', $post));
+
+        $response->assertSuccessful()
+                 ->assertSeeText($post->name);
+    }
 }
