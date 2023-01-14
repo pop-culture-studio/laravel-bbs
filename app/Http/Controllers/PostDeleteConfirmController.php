@@ -12,7 +12,7 @@ class PostDeleteConfirmController extends Controller
      *
      * @param  Request  $request
      * @param  Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function __invoke(Request $request, Post $post)
     {
