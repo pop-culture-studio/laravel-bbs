@@ -34,6 +34,6 @@ class CommentController extends Controller
         cookie()->queue('email', $request->input('email'), $cookie_days);
         cookie()->queue('icon', $request->input('icon'), $cookie_days);
 
-        return back();
+        return to_route('post.show', $post);
     }
 }
