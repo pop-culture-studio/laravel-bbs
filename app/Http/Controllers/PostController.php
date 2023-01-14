@@ -64,6 +64,17 @@ class PostController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Post  $post
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Post $post)
+    {
+        //
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  DestroyPostRequest  $request
