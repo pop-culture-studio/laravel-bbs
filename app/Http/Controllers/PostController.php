@@ -13,28 +13,18 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return to_route('home');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePostRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StorePostRequest $request)
     {
@@ -64,7 +54,7 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Post $post)
     {
@@ -74,34 +64,11 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePostRequest $request, Post $post)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  DestroyPostRequest  $request
      * @param  Post  $post
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(DestroyPostRequest $request, Post $post)
     {
