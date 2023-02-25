@@ -1,4 +1,3 @@
-https://github.com/pop-culture-studio/articles/blob/main/laravel-tutorial-bbs-1.md
 
 ```shell
 composer install
