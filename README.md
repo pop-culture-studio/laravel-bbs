@@ -10,3 +10,6 @@ npm i
 npm run build
 ```
 http://localhost/
+
+## LICENSE
+MIT
