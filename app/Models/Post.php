@@ -18,7 +18,7 @@ class Post extends Model
         'name',
         'email',
         'icon',
-        'password'
+        'password',
     ];
 
     /**

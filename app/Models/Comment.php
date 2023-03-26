@@ -17,7 +17,7 @@ class Comment extends Model
         'name',
         'email',
         'icon',
-        'password'
+        'password',
     ];
 
     /**
